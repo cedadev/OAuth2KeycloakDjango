@@ -125,8 +125,8 @@ AUTHENTICATION_BACKENDS = [
 ]
 LOGIN_URL = 'login'
 # Keycloak settings
-KEYCLOAK_CLIENT_ID = 'django'
-KEYCLOAK_CLIENT_SECRET = 'ed4ceb21-6f33-4564-ad09-0e2dcc6f70b2'
+KEYCLOAK_CLIENT_ID = 'test'
+KEYCLOAK_CLIENT_SECRET = '<INSERT_KEYCLOAK_CLIENT_SECRET_HERE>'
 KEYCLOAK_AUTHORIZE_URL = 'http://localhost:9000/auth/realms/master/protocol/openid-connect/auth'
 KEYCLOAK_TOKEN_URL = 'http://localhost:9000/auth/realms/master/protocol/openid-connect/token'
 KEYCLOAK_USERINFO_URL = 'http://localhost:9000/auth/realms/master/protocol/openid-connect/userinfo'
