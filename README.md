@@ -67,6 +67,7 @@ Make sure you have Python3.6+, Ansible and Docker + Docker-ce installed
     ```
 3. Go to the _Client Credentials_ tab in the `admin console` and copy the _Secret_. Paste this into the
    Django settings.py file as the value of the _KEYCLOAK_CLIENT_SECRET_ setting.
+4. Also, change _KEYCLOAK_CLIENT_ID_ value with the user created above.
    
 4. Run the server
 
