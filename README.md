@@ -35,7 +35,7 @@ Make sure you have Python3.6+, Ansible and Docker + Docker-ce installed
     ```
     $ ansible-playbook create.yml
     ```
-7. Create a client
+7. Create a client (Allow about 20sec for Keycloak to start the server)
     ```
     ansible-playbook -i inventory.yml create_client.yml
     ```
