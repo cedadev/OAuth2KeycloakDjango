@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  tasks:
+    - systemd:
+        name: docker
+        state: started
+
+    #Create a docker image for keycloak configured with python based on Dockerifle at docker
+    - docker_image:
+        source: build
+        path: /root/docker
+        name: jboss/keycloak
+    #Launch a container based on the image we just created
+    - docker_container:
+        name: keycloak.custom
+        image: jboss/keycloak
+        env:
+          KEYCLOAK_USER: admin
+          KEYCLOAK_PASSWORD: admin
+          PROXY_ADDRESS_FORWARDING: "true"
+        published_ports:
+          - 9000:8080
+        restart_policy: unless-stopped

@@ -1,0 +1,12 @@
+---
+- hosts: keycloak.custom
+  tasks:
+    - name: Create a Keycloak group
+      local_action:
+        module: keycloak_group
+        auth_client_id: admin-cli
+        auth_keycloak_url: http://localhost:9000/auth
+        auth_realm: master
+        auth_username: admin
+        auth_password: admin
+        name: test

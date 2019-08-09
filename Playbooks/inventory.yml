@@ -1,0 +1,4 @@
+all:
+  hosts:
+    keycloak.custom:
+      ansible_connection: docker

@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Create or update Keycloak client (minimal example)
+      local_action:
+        module: keycloak_client
+        auth_client_id: admin-cli
+        auth_keycloak_url: http://localhost:9000/auth
+        auth_realm: master
+        auth_username: admin
+        auth_password: admin
+        client_id: test
+        state: present
+        enabled: True
+        redirect_uris:
+          - http://localhost:8000/callback/*
+
+

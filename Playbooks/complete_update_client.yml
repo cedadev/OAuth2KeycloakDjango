@@ -1,0 +1,89 @@
+###
+#Just a working example, settings not yet optimized to work with django app
+###
+---
+- hosts: keycloak.custom
+  tasks:
+    - name: Create or update Keycloak client (minimal example)
+      local_action:
+        module: keycloak_client
+        auth_client_id: admin-cli
+        auth_keycloak_url: http://localhost:9000/auth
+        auth_realm: master
+        auth_username: admin
+        auth_password: admin
+        client_id: test
+        state: present
+        id: b0fde913-c576-4684-8914-2d7fc505594a
+        name: this_is_a_test
+        description: Description of this wonderful client
+        enabled: True
+        client_authenticator_type: client-secret
+        secret: 185c40fb-4e2a-4684-956d-4df2d5cb1c06
+        redirect_uris:
+          - http://localhost:8000/callback/*
+        web_origins:
+          - https://www.example.com/*
+        not_before: 1507825725
+        bearer_only: False
+        consent_required: False
+        standard_flow_enabled: True
+        implicit_flow_enabled: False
+        direct_access_grants_enabled: False
+        service_accounts_enabled: False
+        authorization_services_enabled: False
+        public_client: False
+        frontchannel_logout: False
+        protocol: openid-connect
+        full_scope_allowed: false
+        node_re_registration_timeout: -1
+        client_template: test
+        use_template_config: False
+        use_template_scope: false
+        use_template_mappers: no
+        registered_nodes:
+          node01.example.com: 1507828202
+        registration_access_token: eyJWT_TOKEN
+        surrogate_auth_required: false
+        default_roles:
+          - test01
+          - test02
+        protocol_mappers:
+          - config:
+              access.token.claim: True
+              claim.name: "family_name"
+              id.token.claim: True
+              jsonType.label: String
+              user.attribute: lastName
+              userinfo.token.claim: True
+            consentRequired: True
+            consentText: "${familyName}"
+            name: family name
+            protocol: openid-connect
+            protocolMapper: oidc-usermodel-property-mapper
+          - config:
+              attribute.name: Role
+              attribute.nameformat: Basic
+              single: false
+            consentRequired: false
+            name: role list
+            protocol: saml
+            protocolMapper: saml-role-list-mapper
+        attributes:
+          saml.authnstatement: True
+          saml.client.signature: True
+          saml.force.post.binding: True
+          saml.server.signature: True
+          saml.signature.algorithm: RSA_SHA256
+          saml.signing.certificate: CERTIFICATEHERE
+          saml.signing.private.key: PRIVATEKEYHERE
+          saml_force_name_id_format: False
+          saml_name_id_format: username
+          saml_signature_canonicalization_method: "http://www.w3.org/2001/10/xml-exc-c14n#"
+          user.info.response.signature.alg: RS256
+          request.object.signature.alg: RS256
+          use.jwks.url: true
+          jwks.url: JWKS_URL_FOR_CLIENT_AUTH_JWT
+          jwt.credential.certificate: JWT_CREDENTIAL_CERTIFICATE_FOR_CLIENT_AUTH
+
+

@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  tasks:
+    - docker_container:
+        name: keycloak.custom
+        state:  absent
+
