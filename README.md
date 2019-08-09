@@ -6,22 +6,36 @@ Integrating Django with Keycloak using OpenID Connect (OIDC)
 ### Run Keycloak Ansible playbook
 
 Make sure you have Python3.6+, Ansible and Docker + Docker-ce installed
+1. Create python3 virtual env
+    ```
+    $ python3 -m venv keycloak
+    ```
 
-1. Clone the repository
+2. Activate python3 virtual env
+    ```
+    $ source keycloak/bin/activate
+    ```
+3. Navigate to the `keycloak` directory and create `keycloak-django` directory
+    ```
+    $ cd keycloak
+    $ mkdir keycloak-django
+    ```
+
+4. Clone the repository
     ```
     $ git clone https://github.com/cedadev/OAuth2KeycloakDjango.git
     ```
-2. Go to `Playbooks` directory
+5. Go to `Playbooks` directory
 
-3.  Create a Keycloak admin running on localhost
+6.  Create a Keycloak admin running on localhost
     ```
     $ ansible-playbook create.yml
     ```
-4. Create a client
+7. Create a client
     ```
     ansible-playbook -i inventory.yml create_client.yml
     ```
-5. Create a user
+8. Create a user
 
     There are two ways to create a user:
     1) Log into Keycloak: http://localhost:9000. Click on Admin Console. Then, username and password is `admin` / `admin`.
@@ -38,30 +52,19 @@ Make sure you have Python3.6+, Ansible and Docker + Docker-ce installed
         
 ### Connecting Django and Keycloak
 
-
-1. Create python3 virtual env
-    ```
-    $ python3 -m venv keycloak
-    ```
-
-2. Activate python3 virtual env
-    ```
-    $ source keycloak/bin/activate
-    ```
-
-3. Install requirements
+1. Install requirements
     ```
     $ pip install -r requirements.txt
     ```
 
-4. Run migrations 
+2. Run migrations 
     ```
     $ python manage.py migrate
     ```
-5. Go to the _Client Credentials_ tab in the `admin console` and copy the _Secret_. Paste this into the
+3. Go to the _Client Credentials_ tab in the `admin console` and copy the _Secret_. Paste this into the
    Django settings.py file as the value of the _KEYCLOAK_CLIENT_SECRET_ setting.
    
-6. Run the server
+4. Run the server
 
     ```
     export OAUTHLIB_INSECURE_TRANSPORT=1
