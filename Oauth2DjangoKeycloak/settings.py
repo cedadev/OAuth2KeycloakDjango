@@ -125,7 +125,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 LOGIN_URL = 'login'
 # Keycloak settings
-KEYCLOAK_CLIENT_ID = 'test'
+KEYCLOAK_CLIENT_ID = '<INSERT_KEYCLOAK_CLIENT_ID_HERE>'
 KEYCLOAK_CLIENT_SECRET = '<INSERT_KEYCLOAK_CLIENT_SECRET_HERE>'
 KEYCLOAK_AUTHORIZE_URL = 'http://localhost:9000/auth/realms/master/protocol/openid-connect/auth'
 KEYCLOAK_TOKEN_URL = 'http://localhost:9000/auth/realms/master/protocol/openid-connect/token'
