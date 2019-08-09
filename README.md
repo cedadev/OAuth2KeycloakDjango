@@ -23,6 +23,7 @@ Make sure you have Python3.6+, Ansible and Docker + Docker-ce installed
 
 4. Clone the repository
     ```
+    $ cd keycloak-django
     $ git clone https://github.com/cedadev/OAuth2KeycloakDjango.git
     ```
 5. Go to `Playbooks` directory
