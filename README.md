@@ -5,7 +5,7 @@ Integrating Django with Keycloak using OpenID Connect (OIDC)
 ## Getting Started
 ### Run Keycloak Ansible playbook
 
-#####Make sure you have Python3.6+, Ansible and Docker + Docker-ce installed
+Make sure you have Python3.6+, Ansible and Docker + Docker-ce installed
 
 1. Clone the repository
     ```
@@ -81,7 +81,7 @@ Integrating Django with Keycloak using OpenID Connect (OIDC)
 
 3. Now you should be redirected back to `/protected/`.
 
-###In order to destroy the Keycloak server run
+In order to destroy the Keycloak server run
 ```
 $ ansible-playbook destroy.yml
 ```
