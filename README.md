@@ -27,6 +27,9 @@ Make sure you have Python3.6+, Ansible and Docker + Docker-ce installed
     $ git clone https://github.com/cedadev/OAuth2KeycloakDjango.git
     ```
 5. Go to `Playbooks` directory
+    ```
+    $ cd OAuth2KeycloakDjango/Playbooks/
+    ```
 
 6.  Create a Keycloak admin running on localhost
     ```
